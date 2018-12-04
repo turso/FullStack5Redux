@@ -1,11 +1,11 @@
-const getId = () => (1000000 * Math.random()).toFixed(0);
+const getId = () => (1000000 * Math.random()).toFixed(0)
 
 export default {
   addVote(id) {
     return {
       type: 'ADD_VOTE',
       data: { id }
-    };
+    }
   },
   anecdoteCreation(content) {
     return {
@@ -15,6 +15,6 @@ export default {
         id: getId(),
         votes: 0
       }
-    };
+    }
   }
-};
+}

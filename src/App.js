@@ -1,6 +1,6 @@
-import React from 'react';
-import AnecdoteForm from './components/AnecdoteForm';
-import AnecdoteList from './components/AnecdoteList';
+import React from 'react'
+import AnecdoteForm from './components/AnecdoteForm'
+import AnecdoteList from './components/AnecdoteList'
 
 class App extends React.Component {
   render() {
@@ -9,8 +9,8 @@ class App extends React.Component {
         <AnecdoteList />
         <AnecdoteForm />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

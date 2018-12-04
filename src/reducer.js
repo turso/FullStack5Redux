@@ -5,37 +5,37 @@ const anecdotesAtStart = [
   'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
   'Premature optimization is the root of all evil.',
   'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
-];
+]
 
-const getId = () => (1000000 * Math.random()).toFixed(0);
+const getId = () => (1000000 * Math.random()).toFixed(0)
 
 const asObject = anecdote => {
   return {
     content: anecdote,
     id: getId(),
     votes: 0
-  };
-};
+  }
+}
 
-const initialState = anecdotesAtStart.map(asObject);
+const initialState = anecdotesAtStart.map(asObject)
 
 const AnecdoteReducer = (state = initialState, action) => {
-  console.log('state now: ', state);
-  console.log('action', action);
+  console.log('state now: ', state)
+  console.log('action', action)
 
   switch (action.type) {
-    case 'ADD_VOTE':
-      const id = action.data.id;
-      const anecdoteToUpdate = state.find(a => a.id === id);
-      console.log('ANEKDOOOTTI', anecdoteToUpdate);
-      const changedAnecdote = { ...anecdoteToUpdate, votes: anecdoteToUpdate.votes + 1 };
+  case 'ADD_VOTE':
+    const id = action.data.id
+    const anecdoteToUpdate = state.find(a => a.id === id)
+    console.log('ANEKDOOOTTI', anecdoteToUpdate)
+    const changedAnecdote = { ...anecdoteToUpdate, votes: anecdoteToUpdate.votes + 1 }
 
-      return state.map(anecdote => (anecdote.id !== id ? anecdote : changedAnecdote));
-    case 'NEW_ANECDOTE':
-      return [...state, action.data];
-    default:
-      return state;
+    return state.map(anecdote => (anecdote.id !== id ? anecdote : changedAnecdote))
+  case 'NEW_ANECDOTE':
+    return [...state, action.data]
+  default:
+    return state
   }
-};
+}
 
-export default AnecdoteReducer;
+export default AnecdoteReducer
