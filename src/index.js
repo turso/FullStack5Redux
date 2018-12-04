@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import App from './App'
-import AnecdoteReducer from './reducer'
+import AnecdoteReducer from './reducers/anecdoteReducer'
 
 ReactDOM.render(
   <Provider store={createStore(AnecdoteReducer)}>

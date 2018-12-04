@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 const anecdotesAtStart = [
   'If it hurts, do it more often',
   'Adding manpower to a late software project makes it later!',
@@ -27,7 +28,6 @@ const AnecdoteReducer = (state = initialState, action) => {
   case 'ADD_VOTE':
     const id = action.data.id
     const anecdoteToUpdate = state.find(a => a.id === id)
-    console.log('ANEKDOOOTTI', anecdoteToUpdate)
     const changedAnecdote = { ...anecdoteToUpdate, votes: anecdoteToUpdate.votes + 1 }
 
     return state.map(anecdote => (anecdote.id !== id ? anecdote : changedAnecdote))
