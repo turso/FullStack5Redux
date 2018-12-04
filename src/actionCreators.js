@@ -16,5 +16,11 @@ export default {
         votes: 0
       }
     }
+  },
+  notificationChange(notification) {
+    return {
+      type: 'CHANGE_NOTIFICATION',
+      notification
+    }
   }
 }

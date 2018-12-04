@@ -24,7 +24,7 @@ class AnecdoteList extends React.Component {
       <ul>
         {this.context.store
           .getState()
-          .sort((anecdote, mostVotes) => {
+          .anecdotes.sort((anecdote, mostVotes) => {
             return mostVotes.votes - anecdote.votes
           })
           .map(anecdote => <Anecdote key={anecdote.id} anecdote={anecdote} handleClick={this.addVote(anecdote.id)} />)}
