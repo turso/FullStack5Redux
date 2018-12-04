@@ -7,7 +7,6 @@ class AnecdoteList extends React.Component {
   componentDidMount() {
     const { store } = this.context;
     this.unsubscribe = store.subscribe(() => this.forceUpdate());
-    console.log('STORE', store);
   }
 
   componentWillUnmount() {
@@ -16,7 +15,6 @@ class AnecdoteList extends React.Component {
 
   addVote = id => e => {
     this.context.store.dispatch(actionFor.addVote(id));
-    console.log('THIS:PROPS:STORE', this.context.store);
     console.log('ID', id);
   };
 
