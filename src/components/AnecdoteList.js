@@ -14,9 +14,13 @@ class AnecdoteList extends React.Component {
     this.unsubscribe()
   }
 
-  addVote = id => e => {
+  addVote = (id, content) => e => {
     this.context.store.dispatch(actionFor.addVote(id))
+    this.context.store.dispatch(actionFor.notificationChange(content))
     console.log('ID', id)
+    setTimeout(() => {
+      this.context.store.dispatch(actionFor.notificationChange(null))
+    }, 5000)
   }
 
   render() {
@@ -27,7 +31,9 @@ class AnecdoteList extends React.Component {
           .anecdotes.sort((anecdote, mostVotes) => {
             return mostVotes.votes - anecdote.votes
           })
-          .map(anecdote => <Anecdote key={anecdote.id} anecdote={anecdote} handleClick={this.addVote(anecdote.id)} />)}
+          .map(anecdote => (
+            <Anecdote key={anecdote.id} anecdote={anecdote} handleClick={this.addVote(anecdote.id, anecdote.content)} />
+          ))}
       </ul>
     )
   }

@@ -7,9 +7,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <h1>Programming Anecdotes</h1>
+        <Notification />
         <AnecdoteList />
         <AnecdoteForm />
-        {/* <Notification /> */}
       </div>
     )
   }
