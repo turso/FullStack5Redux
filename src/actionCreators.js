@@ -22,5 +22,11 @@ export default {
       type: 'CHANGE_NOTIFICATION',
       notification
     }
+  },
+  filterChange(filter) {
+    return {
+      type: 'SET_FILTER',
+      filter
+    }
   }
 }
