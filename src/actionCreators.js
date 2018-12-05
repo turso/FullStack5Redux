@@ -25,7 +25,7 @@ export default {
   },
   filterChange(filter) {
     return {
-      type: 'SET_FILTER',
+      type: 'FILTER',
       filter
     }
   }

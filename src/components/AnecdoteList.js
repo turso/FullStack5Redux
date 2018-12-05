@@ -24,11 +24,14 @@ class AnecdoteList extends React.Component {
   }
 
   render() {
+    const anecdotes = this.context.store.getState().anecdotes
+    const filter = this.context.store.getState().filter
+    const anecdotesToShow = anecdotes.filter(a => a.content.toLowerCase().includes(filter.toLowerCase()))
+
     return (
       <ul>
-        {this.context.store
-          .getState()
-          .anecdotes.sort((anecdote, mostVotes) => {
+        {anecdotesToShow
+          .sort((anecdote, mostVotes) => {
             return mostVotes.votes - anecdote.votes
           })
           .map(anecdote => (

@@ -33,6 +33,14 @@ const anecdoteReducer = (state = initialState, action) => {
     return state.map(anecdote => (anecdote.id !== id ? anecdote : changedAnecdote))
   case 'NEW_ANECDOTE':
     return [...state, action.data]
+    // case 'SET_FILTER':
+    //   const anecdoteToShow =
+    //       action.data.filter === ''
+    //         ? state
+    //         : state.filter(anecdote => {
+    //           return anecdote.content.indexOf(action.data.filter) !== -1
+    //         })
+    //   break
   default:
     return state
   }
