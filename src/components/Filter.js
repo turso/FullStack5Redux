@@ -21,5 +21,4 @@ class Filter extends React.Component {
     )
   }
 }
-
 export default connect(null, { filterChange })(Filter)
