@@ -1,20 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import actionFor from '../actionCreators'
+import { connect } from 'react-redux'
+import { anecdoteCreation } from '../actionCreators'
 
 class AnecdoteForm extends React.Component {
-  componentDidMount() {
-    const { store } = this.context
-    this.unsubscribe = store.subscribe(() => this.forceUpdate())
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe()
-  }
-
   addAnecdote = event => {
     event.preventDefault()
-    this.context.store.dispatch(actionFor.anecdoteCreation(event.target.anecdote.value))
+    this.props.anecdoteCreation(event.target.anecdote.value)
     event.target.anecdote.value = ''
   }
 
@@ -28,8 +19,4 @@ class AnecdoteForm extends React.Component {
   }
 }
 
-AnecdoteForm.contextTypes = {
-  store: PropTypes.object
-}
-
-export default AnecdoteForm
+export default connect(null, { anecdoteCreation })(AnecdoteForm)
