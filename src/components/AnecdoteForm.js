@@ -1,12 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { anecdoteCreation } from '../actionCreators'
+import anecdoteService from '../services/anecdotes'
 
 class AnecdoteForm extends React.Component {
-  addAnecdote = event => {
+  addAnecdote = async event => {
     event.preventDefault()
-    this.props.anecdoteCreation(event.target.anecdote.value)
+    const content = event.target.anecdote.value
     event.target.anecdote.value = ''
+    const newAnecdote = await anecdoteService.createNew(content)
+    this.props.anecdoteCreation(content)
   }
 
   render() {
