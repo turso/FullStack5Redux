@@ -31,3 +31,10 @@ export const filterChange = filter => {
     filter
   }
 }
+
+export const anecdoteInitialization = data => {
+  return {
+    type: 'INIT_ANECDOTES',
+    data
+  }
+}
