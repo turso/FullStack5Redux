@@ -5,7 +5,6 @@ import { anecdoteCreation } from '../actionCreators'
 
 class AnecdoteForm extends React.Component {
   addAnecdote = async event => {
-    // console.log('LISÄTÄÄN UUSI', event.target.anecdote.value)
     event.preventDefault()
     const content = event.target.anecdote.value
     event.target.anecdote.value = ''
