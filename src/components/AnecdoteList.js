@@ -1,16 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { connect } from 'react-redux'
-import { addVote, notificationChange } from '../actionCreators'
+import { addVote, changeNotification } from '../actionCreators'
 import Anecdote from './Anecdote'
 
 class AnecdoteList extends React.Component {
   addVote = anecdote => async e => {
     this.props.addVote(anecdote.id, anecdote)
-    this.props.notificationChange(anecdote.content)
-    setTimeout(() => {
-      this.props.notificationChange(null)
-    }, 5000)
+    this.props.changeNotification(anecdote.content, 5)
   }
 
   render() {
@@ -41,4 +38,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { addVote, notificationChange })(AnecdoteList)
+export default connect(mapStateToProps, { addVote, changeNotification })(AnecdoteList)

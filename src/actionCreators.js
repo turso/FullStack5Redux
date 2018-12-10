@@ -30,10 +30,18 @@ export const addVote = (id, anecdote) => {
   }
 }
 
-export const notificationChange = notification => {
-  return {
-    type: 'CHANGE_NOTIFICATION',
-    notification
+export const changeNotification = (notification, time) => {
+  return async dispatch => {
+    dispatch({
+      type: 'CHANGE_NOTIFICATION',
+      notification
+    })
+    setTimeout(() => {
+      dispatch({
+        type: 'CHANGE_NOTIFICATION',
+        notification: null
+      })
+    }, time * 1000)
   }
 }
 
