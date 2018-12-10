@@ -1,14 +1,29 @@
+import anecdoteService from './services/anecdotes'
+
+export const anecdoteInitialization = () => {
+  return async dispatch => {
+    const anecdotes = await anecdoteService.getAll()
+    dispatch({
+      type: 'INIT_ANECDOTES',
+      data: anecdotes
+    })
+  }
+}
+
+export const anecdoteCreation = content => {
+  return async dispatch => {
+    const newAnecdote = await anecdoteService.createNew(content)
+    dispatch({
+      type: 'NEW_ANECDOTE',
+      data: newAnecdote
+    })
+  }
+}
+
 export const addVote = (id, content) => {
   return {
     type: 'ADD_VOTE',
     data: { id, content }
-  }
-}
-
-export const anecdoteCreation = data => {
-  return {
-    type: 'NEW_ANECDOTE',
-    data
   }
 }
 
@@ -23,12 +38,5 @@ export const filterChange = filter => {
   return {
     type: 'FILTER',
     filter
-  }
-}
-
-export const anecdoteInitialization = data => {
-  return {
-    type: 'INIT_ANECDOTES',
-    data
   }
 }

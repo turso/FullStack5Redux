@@ -5,12 +5,10 @@ import Notification from './components/Notification'
 import Filter from './components/Filter'
 import { connect } from 'react-redux'
 import { anecdoteInitialization } from './actionCreators'
-import anecdoteService from './services/anecdotes'
 
 class App extends React.Component {
   componentDidMount = async () => {
-    const anecdotes = await anecdoteService.getAll()
-    this.props.anecdoteInitialization(anecdotes)
+    this.props.anecdoteInitialization()
   }
 
   render() {
